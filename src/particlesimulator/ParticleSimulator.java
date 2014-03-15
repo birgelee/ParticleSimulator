@@ -25,6 +25,7 @@ public class ParticleSimulator {
     private static List<Particle> particles = new ArrayList<Particle>();
     public static void main(String[] args) throws InterruptedException {
         System.out.println("starting app");
+        System.out.println("vector: " + new Vector3D(1, 0, 0, Vector3D.CoordinateSystem.SPHERICAL));
         //System.out.println((new Vector3D(Math.PI / 4, Math.PI / 4, 30, true)).getLength());
         //particles.add(new Particle(new Vector3D(.1,0,-1), new Vector3D(.5,0,-.1), 30));
         particles.add(new Particle(new Vector3D(.1,0,-1.3), new Vector3D(.5,0,.3), 30));

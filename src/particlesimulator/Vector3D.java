@@ -71,7 +71,10 @@ public class Vector3D {
     public static Point2D.Double getAngle(Vector3D vector) {
         double theta = Math.asin(vector.y / vector.getLength());
         double phi = Math.asin(vector.x / vector.getR());
-        
+        if (Double.isNaN(phi))
+            phi = 0;
+        if (Double.isNaN(theta))
+            theta = 0;
         return new Point2D.Double(theta, phi);
     }
     
@@ -149,7 +152,7 @@ public class Vector3D {
     
     public Vector3D setAngle(double theta, double phi) {
         double magnitude = length(this);
-        this.copy(new Vector3D(magnitude, theta, phi, CoordinateSystem.CYLINDRICAL));
+        this.copy(new Vector3D(magnitude, theta, phi, CoordinateSystem.SPHERICAL));
         return this;
     }
     public Vector3D add(Vector3D o) {
@@ -199,10 +202,14 @@ public class Vector3D {
     }
     
     public Vector3D subtractAngle(double theta, double phi) {
+        System.out.println("vec3D: " + this);
         Point2D.Double currentAngle = getAngle(this);
+        System.out.println("theta: " + theta);
+        System.out.println("phi: " + phi);
         currentAngle.x -= theta;
         currentAngle.y -= phi;
-        setAngle(theta, phi);
+        setAngle(currentAngle.x, currentAngle.y);
+        System.out.println("vec3D after: " + this);
         return this;
     }
     

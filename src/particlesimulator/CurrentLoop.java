@@ -107,7 +107,8 @@ public class CurrentLoop implements FieldSource {
     @Override
     public Vector3D get(Vector3D position) {
         Vector3D displacement = Vector3D.subtract(position, this.position);
-        //displacement.subtract(direction);
+        System.out.println("direction: " + direction);
+        displacement.subtractAngle(direction);
         boolean shouldInvert = false;
         if (displacement.y < 0) {
             shouldInvert = true;
@@ -127,7 +128,7 @@ public class CurrentLoop implements FieldSource {
         if (shouldInvert) {
             result.y = -result.y;
         }
-        //result.addAngle(direction);
+        result.addAngle(direction);
         return result;
     }
     
