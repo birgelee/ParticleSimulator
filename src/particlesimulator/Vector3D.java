@@ -69,7 +69,7 @@ public class Vector3D {
      * The vector with theta = 0 is [0,0,1]
      */
     public static Point2D.Double getAngle(Vector3D vector) {
-        double theta = Math.asin(vector.y / vector.getLength());
+        double theta = Math.acos(vector.y / vector.getLength());
         double phi = Math.asin(vector.x / vector.getR());
         if (Double.isNaN(phi))
             phi = 0;

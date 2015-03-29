@@ -86,7 +86,7 @@ public class JMEApplication extends SimpleApplication {
         //Draw feild lines
         for (int x = -10 ; x <= 10; x++) {
                 for (int z = -10; z <= 10; z++) {
-                    float y = -.1f;
+                    float y = -0f;
                     Vector3D bDirection = bField.get(new Vector3D(x, y, z));
                     bDirection.normalize().divide(2);
                     //bDirection.addAngle(Math.PI,0 );
